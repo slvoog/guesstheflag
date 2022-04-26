@@ -281,6 +281,7 @@
 
         var randomCode = randomCountry()
         var country = countries[randomCode];
+        var correct = country.toLowerCase();
         
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
@@ -290,8 +291,8 @@
 
         function guessCheck() {
             // Check the guess based on the country name using the JSON variable called countries and the random country code generated above
-            var guess = document.getElementById("guess").value;
-            if (guess == country) {
+            var guess = document.getElementById("guess").value.toLowerCase();
+            if (guess == correct) {
                 document.getElementById("guessLabel").innerHTML = "Correct!";
                 document.getElementById("guessLabel").style.color = "#00ff1f";
                 document.getElementById("submit").disabled = true;
